@@ -1,0 +1,25 @@
+#__nuxt {
+    position: relative;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.gradient {
+    background: linear-gradient(77deg, #FF4D00 10.56%, #EC9F05 77.23%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-blue {
+    background: linear-gradient(77deg, #0A89FF 10.56%, #0561EC 77.23%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradiented {
+    background: linear-gradient(77deg, #FF4D00 10.56%, #EC9F05 77.23%);
+}

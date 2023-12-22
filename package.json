@@ -11,8 +11,16 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.1.0",
+    "@nuxtjs/tailwindcss": "^6.10.1",
     "nuxt": "^3.8.2",
+    "nuxt-icon": "^0.6.7",
+    "sharp": "^0.33.1",
     "vue": "^3.3.12",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "nuxt-speedkit": "^3.0.0-next.44",
+    "typescript": "^5.3.3"
   }
 }
