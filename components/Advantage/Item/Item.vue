@@ -16,7 +16,7 @@ defineProps<IAdvantage>()
         <h3 class="text-base mt-3 gradient text-center font-gilroy-black leading-normal">
             {{ title }}
         </h3>
-        <p class="text-xs mt-3 text-brown text-center">
+        <p class="text-xs mt-3 text-brown font-gilroy-regular text-center">
             {{ description }}
         </p>
     </div>

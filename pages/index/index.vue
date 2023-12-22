@@ -159,29 +159,31 @@ const steps: IStep[] = [
                         format="webp"
                         loading="lazy"
                         alt="partners"
-                        class="w-full"
+                        sizes="lg:500px xl:600px 2xl:700px"
+                        class="w-full xs:w-[200px] s:w-[240px] sm:w-[330px] md:w-[350px] lg:w-[500px] xl:w-full"
                     />
                     <NuxtImg
                         src="/pattern.png"
                         format="webp"
                         loading="lazy"
                         alt="partners"
-                        class="w-full absolute xl:top-8 xl:right-10 2xl:top-10 2xl:right-[3.5rem] z-[-1]"
+                        class="w-full xs:top-6 xs:w-[200px] xs:right-6 s:w-[240px] sm:w-[330px] md:w-[350px] lg:w-[500px]
+                        xl:w-[690px] sm:right-8 absolute xl:top-8 xl:right-10 2xl:top-10 2xl:right-[3.5rem] z-[-1]"
                     />
 
                 </div>
-                <div class="w-1/2 flex flex-col px-10">
-                    <UTitle :isGradient="true">
+                <div class="w-1/2 flex flex-col lg:px-10 xs:mt-12 lg:mt-0">
+                    <UTitle :isGradient="true" class="xs:text-center lg:text-start">
                         О нас
                     </UTitle>
-                    <p class="leading-8 font-gilroy-light text-brown mt-1">
+                    <p class="leading-8 font-gilroy-light text-brown mt-1 xs:text-center lg:text-start">
                         Добро пожаловать в мир Traner – вашего идеального партнера в создании незабываемых моментов
                         отдыха
                         и приключений! Мы являемся специализированной компанией, посвященной поиску и созданию идеальных
                         партнерств для совместного отдыха и путешествий.
                     </p>
                     <UButton
-                        class="bg-yellow text-white center self-start mt-6"
+                        class="bg-yellow text-white center self-start mt-5 xs:py-2 md:py-3 xs:text-base max-lg:self-center"
                         onClick=""
                     >
                         расскажите подробнее

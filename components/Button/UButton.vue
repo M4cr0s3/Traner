@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 defineProps<{
-    onClick: Function | string
+    onClick?: () => void
 }>()
 
 </script>
@@ -9,11 +9,9 @@ defineProps<{
 <template>
     <button
         @click.prevent="onClick"
-        class="rounded-lg shadow-md px-5 py-[1.0625rem]"
+        class="rounded-lg shadow-md px-5 py-[1.0625rem] font-gilroy-semibold text-xl uppercase"
     >
-        <span class="font-gilroy-semibold text-xl uppercase">
-            <slot/>
-        </span>
+        <slot/>
     </button>
 </template>
 
