@@ -55,6 +55,7 @@ import UIButton from "~/components/Button/UIButton.vue";
                             format="webp"
                             height="14"
                             width="24"
+                            alt="vk logo"
                         />
                         <h3 class="text-white font-gilroy-extrabold text-sm ml-2">vk</h3>
                     </div>
