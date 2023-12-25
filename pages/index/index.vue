@@ -327,6 +327,7 @@ const steps: IStep[] = [
                     format="webp"
                     sizes="sm:200px md:300px lg:360px"
                     quality="80"
+                    alt="lets talk"
                     :placeholder="[360, 360, 80, 5]"
                     class="absolute top-4 left-1/2 transform -translate-x-1/2 z-[-1] xs:w-[200px] s:w-[250px] sm:w-[280px]  md:w-[300px] lg:w-[383px]"
                 />
@@ -340,6 +341,7 @@ const steps: IStep[] = [
                     <NuxtImg
                         src="vk_logo.svg"
                         format="webp"
+                        alt="vklogo"
                         height="28"
                         width="48"
                     />
