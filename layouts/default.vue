@@ -6,6 +6,7 @@ import Navbar from "~/components/Header/Navbar.vue";
 <template>
     <Navbar />
     <slot />
+    <UFooter />
 </template>
 
 <style scoped>

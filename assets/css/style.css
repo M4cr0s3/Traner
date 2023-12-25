@@ -2,6 +2,7 @@
 
 #__nuxt {
     position: relative;
+    background: #ffffff;
 }
 
 html {
@@ -25,3 +26,4 @@ html {
 .gradiented {
     background: linear-gradient(77deg, #FF4D00 10.56%, #EC9F05 77.23%);
 }
+

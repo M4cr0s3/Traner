@@ -1,8 +1,7 @@
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+    <NuxtLayout>
+        <NuxtPage/>
+    </NuxtLayout>
 </template>
-<style scoped>
-@import "~/assets/css/style.css";
-</style>
+<script setup lang="ts">
+</script>

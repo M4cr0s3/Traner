@@ -4,7 +4,7 @@ import Logo from "~/components/Header/Logo.vue";
 </script>
 
 <template>
-    <div class="container pt-5 flex justify-between items-center relative z-50">
+    <header class="container pt-5 flex justify-between items-center relative z-50">
         <Logo/>
         <div class="flex gap-9 max-xl:hidden">
             <HeaderLink class="opacity-link-active" to="/">Главная</HeaderLink>
@@ -18,7 +18,7 @@ import Logo from "~/components/Header/Logo.vue";
                 Войти
             </HeaderLink>
         </div>
-    </div>
+    </header>
 
 </template>
 

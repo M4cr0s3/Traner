@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import UButton from "~/components/Button/UButton.vue";
+import UIButton from "~/components/Button/UIButton.vue";
 import UTitle from "~/components/Title/UTitle.vue";
 import type {Advantages, IReview} from "~/types";
 import type {IStep} from "~/components/Start/List/List.vue";
-import Logo from "~/components/Header/Logo.vue";
+import {useNotification} from "~/composables/useNotification";
 
 useSeoMeta({
     title: 'Traner - сервис для поиска пары для путешествий',
@@ -20,6 +20,7 @@ useSeoMeta({
     ogType: "website",
 })
 
+
 const advantages: Advantages = [
     {
         icon: 'individual.svg',
@@ -30,7 +31,7 @@ const advantages: Advantages = [
     },
     {
         icon: 'widespectre.svg',
-        title: 'Широкий спектр предложений для разнообразного отдыха',
+        title: 'Широкий спектр предложений',
         description: 'Traner не ограничивается однотипными предложениями. Мы предлагаем клиентам возможность выбора из' +
             ' разнообразных опций для совместных путешествий – от роскошных романтических уикендов до захватывающих' +
             ' приключений в группе.'
@@ -83,7 +84,7 @@ const steps: IStep[] = [
     },
     {
         icon: 'ph:pen-nib',
-        title: 'ЗАПОЛНИТЕ СВОЮ АНКЕТУ',
+        title: 'ЗАПОЛНИТЕ АНКЕТУ',
         content: 'Добавьте как можно больше полезной информации о себе, о ваших предпочтениях и желаниях, ' +
             'чтобы найти идеально подходящего партнера'
     },
@@ -109,7 +110,7 @@ const steps: IStep[] = [
 
 <template>
     <div class="wrapper">
-        <div class="container mx-auto sm:w-full md:w-11/12 max-lg:flex-col xl:w-4/5 2xl:w-3/4 flex items-center">
+        <div class="container mx-auto z-50  sm:w-full md:w-11/12 max-lg:flex-col xl:w-4/5 2xl:w-3/4 flex items-center">
             <div class="md:w-1/2 flex flex-col 2xl:pr-10 max-lg:items-center">
                 <h1 class="text-white font-gilroy-black text-5xl">Находите.</h1>
                 <h1 class="text-white font-gilroy-black text-5xl mt-3">Путешествуйте</h1>
@@ -118,18 +119,18 @@ const steps: IStep[] = [
                     для совместного путешествия в любую точку планеты.
                 </p>
                 <div class="flex mt-9 max-lg:flex-col w-full max-lg:justify-around">
-                    <UButton
+                    <UIButton
                         onClick=""
                         class="text-orange bg-white max-lg:mr-0 max-lg:mb-4 mr-7"
                     >
                         Начать поиск партнера
-                    </UButton>
-                    <UButton
+                    </UIButton>
+                    <UIButton
                         onClick=""
                         class="text-white bg-yellow"
                     >
                         Узнать больше
-                    </UButton>
+                    </UIButton>
                 </div>
 
             </div>
@@ -160,7 +161,7 @@ const steps: IStep[] = [
                         loading="lazy"
                         alt="partners"
                         sizes="lg:500px xl:600px 2xl:700px"
-                        class="w-full xs:w-[200px] s:w-[240px] sm:w-[330px] md:w-[350px] lg:w-[500px] xl:w-full"
+                        class="w-full xs:w-[200px] s:w-[240px] sm:w-[330px] md:w-[350px] lg:w-[500px] xl:w-full z-20 relative"
                     />
                     <NuxtImg
                         src="/pattern.png"
@@ -168,26 +169,25 @@ const steps: IStep[] = [
                         loading="lazy"
                         alt="partners"
                         class="w-full xs:top-6 xs:w-[200px] xs:right-6 s:w-[240px] sm:w-[330px] md:w-[350px] lg:w-[500px]
-                        xl:w-[690px] sm:right-8 absolute xl:top-8 xl:right-10 2xl:top-10 2xl:right-[3.5rem] z-[-1]"
+                        xl:w-[690px] sm:right-8 absolute xl:top-8 xl:right-10 2xl:top-10 2xl:right-[3.5rem] z-1"
                     />
-
                 </div>
                 <div class="w-1/2 flex flex-col lg:px-10 xs:mt-12 lg:mt-0">
                     <UTitle :isGradient="true" class="xs:text-center lg:text-start">
                         О нас
                     </UTitle>
-                    <p class="leading-8 font-gilroy-light text-brown mt-1 xs:text-center lg:text-start">
+                    <p class="leading-8 font-gilroy-light text-brown mt-3 xs:text-center lg:text-start">
                         Добро пожаловать в мир Traner – вашего идеального партнера в создании незабываемых моментов
                         отдыха
                         и приключений! Мы являемся специализированной компанией, посвященной поиску и созданию идеальных
                         партнерств для совместного отдыха и путешествий.
                     </p>
-                    <UButton
+                    <UIButton
                         class="bg-yellow text-white center self-start mt-5 xs:py-2 md:py-3 xs:text-base max-lg:self-center"
                         onClick=""
                     >
                         расскажите подробнее
-                    </UButton>
+                    </UIButton>
                 </div>
             </div>
         </section>
@@ -214,12 +214,12 @@ const steps: IStep[] = [
                 class="container sm:w-full md:w-11/12 max-lg:flex-col xl:w-4/5 2xl:w-3/4 flex items-center
                  flex-wrap lg:items-stretch justify-between xl:mt-8">
                 <ReviewsList :reviews="reviews"></ReviewsList>
-                <UButton
+                <UIButton
                     onClick=""
                     class="bg-yellow text-white mt-10"
                 >
                     Все отзывы
-                </UButton>
+                </UIButton>
             </div>
         </section>
         <section class="how-to-start py-16">
@@ -330,11 +330,13 @@ const steps: IStep[] = [
                     :placeholder="[360, 360, 80, 5]"
                     class="absolute top-4 left-1/2 transform -translate-x-1/2 z-[-1] xs:w-[200px] s:w-[250px] sm:w-[280px]  md:w-[300px] lg:w-[383px]"
                 />
-                <div class="flex items-center absolute xs:top-20 xs:left-[5%] s:top-[6rem] s:left-[13%] sm:top-[6.8rem] sm:left-[17%] md:top-32 md:left-[20%] xl:left-[30%] lg:top-40">
+                <div
+                    class="flex items-center absolute xs:top-20 xs:left-[5%] s:top-[6rem] s:left-[13%] sm:top-[6.8rem] sm:left-[17%] md:top-32 md:left-[20%] xl:left-[30%] lg:top-40">
                     <Icon name="ph:telegram-logo" color="#0A89FF" size="3em"/>
                     <h3 class="gradient-blue font-gilroy-extrabold xs:text-xl md:text-2xl lg:text-3xl ml-2">tg</h3>
                 </div>
-                <div class="flex items-center absolute xs:top-[5.3rem] xs:right-[5%] s:top-[6.2rem] s:right-[13%] sm:top-28 sm:right-[17%] md:top-32 md:right-[20%] lg:top-40 xl:right-[30%] xl:top-40">
+                <div
+                    class="flex items-center absolute xs:top-[5.3rem] xs:right-[5%] s:top-[6.2rem] s:right-[13%] sm:top-28 sm:right-[17%] md:top-32 md:right-[20%] lg:top-40 xl:right-[30%] xl:top-40">
                     <NuxtImg
                         src="vk_logo.svg"
                         format="webp"
@@ -346,59 +348,6 @@ const steps: IStep[] = [
             </div>
         </section>
     </main>
-    <footer class="pb-12 pt-8 flex items-center xs:mt-[170px] sm:mt-[230px] md:mt-[260px] lg:mt-[350px] bg-no-repeat bg-cover bg-center">
-        <div class="container sm:w-full md:w-11/12 max-lg:flex-col xl:w-4/5 2xl:w-3/4 flex flex-col">
-            <div class="grid grid-cols-5 max-md:grid-cols-3 gap-4 max-sm:grid-cols-2 max-s:grid-cols-1">
-                <Logo class="max-s:justify-center"/>
-                <div class="flex flex-col pt-5 max-s:items-center">
-                    <h4 class="text-xl font-gilroy-black text-white mb-1">Компания</h4>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Контакты</NuxtLink>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Новости</NuxtLink>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Вакансии</NuxtLink>
-                </div>
-                <div class="flex flex-col pt-5 max-s:items-center">
-                    <h4 class="text-xl font-gilroy-black text-white mb-1">Быстрые ссылки</h4>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Центр поддержки</NuxtLink>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Статус сервиса</NuxtLink>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Безопасность</NuxtLink>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Блог</NuxtLink>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Обзоры</NuxtLink>
-                </div>
-                <div class="flex flex-col pt-5 max-s:items-center">
-                    <h4 class="text-xl font-gilroy-black text-white mb-1">Быстрые ссылки</h4>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Соглашение о конфиденциальности</NuxtLink>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Правила использования</NuxtLink>
-                </div>
-                <div class="flex flex-col pt-5 max-s:items-center">
-                    <h4 class="text-xl font-gilroy-black text-white mb-1">Есть вопрос?</h4>
-                    <NuxtLink to="#" class="font-gilroy-light text-sm mb-2 text-white">Имеется вопрос для агента поддержки?</NuxtLink>
-                    <UButton onClick="" class="bg-white text-orange max-s:py-2 py-3">
-                        Напишите
-                    </UButton>
-                </div>
-            </div>
-            <div class="flex items-center justify-between mt-14 max-s:flex-col gap-2">
-                <div class="font-gilroy-regular text-base text-white">
-                    ©2023 Traner | Все права защищены
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="flex items-center">
-                        <Icon name="ph:telegram-logo" color="#fff" size="1.5em"/>
-                        <h3 class="text-white font-gilroy-extrabold text-sm ml-2">tg</h3>
-                    </div>
-                    <div class="flex items-center">
-                        <NuxtImg
-                            src="vk_logo_white.svg"
-                            format="webp"
-                            height="14"
-                            width="24"
-                        />
-                        <h3 class="text-white font-gilroy-extrabold text-sm ml-2">vk</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 </template>
 
@@ -438,9 +387,4 @@ const steps: IStep[] = [
         transform: translateX(-100%);
     }
 }
-
-footer {
-    background-image: url('~/assets/images/footer_bg.webp');
-}
-
 </style>

@@ -1,14 +1,13 @@
 <script setup lang="ts">
 
-defineProps<{
-    onClick?: () => void
-}>()
+// defineProps<{
+//     onClick?: () => void
+// }>()
 
 </script>
 
 <template>
     <button
-        @click.prevent="onClick"
         class="rounded-lg shadow-md px-5 py-[1.0625rem] font-gilroy-semibold text-xl uppercase"
     >
         <slot/>

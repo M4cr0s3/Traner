@@ -1,9 +1,11 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-    content: [[
+import type {Config} from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
+
+export default <Partial<Config>>{
+    content: [
         './pages/**/*.{html,js,vue,jsx,tsx}',
         './components/**/*.{html,js,vue,jsx,tsx}',
-    ],],
+    ],
     theme: {
         fontFamily: {
             'gilroy-heavy': ['Gilroy Heavy', 'sans-serif'],
@@ -27,13 +29,13 @@ export default {
         container: {
             center: true
         },
-        colors: {
-            orange: '#FF4C00',
-            white: '#FFF',
-            yellow: '#FBB01C',
-            brown: '#6C4133'
-        },
         extend: {
+            colors: {
+                orange: '#FF4C00',
+                white: '#FFF',
+                yellow: '#FBB01C',
+                brown: '#6C4133',
+            },
             screens: {
                 'xs': '320px',
                 's': '480px',
@@ -59,4 +61,3 @@ export default {
     },
     plugins: [],
 }
-

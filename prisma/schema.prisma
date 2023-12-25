@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_NEON_URL")
+  directUrl = env("POSTGRES_URL_POOL")
+}
+
+model User {
+  id              Int       @id @default(autoincrement())
+  username        String?
+  name            String
+  surname         String
+  email           String    @unique
+  password        String
+  country         Country?  @relation(fields: [countryId], references: [id])
+  countryId       Int?
+  cityId          Int?
+  city            City?     @relation(fields: [cityId], references: [id])
+  salt            String
+  about           String?
+  hobbies         Json?     @db.JsonB
+  created_at      DateTime  @default(now())
+  updated_at      DateTime? @updatedAt
+  isEmailVerified Boolean?  @db.Boolean
+
+  @@map("users")
+}
+
+model Country {
+  id     Int    @id @default(autoincrement())
+  title  String @db.VarChar(50)
+  cities City[]
+  User   User[]
+
+  @@map("countries")
+}
+
+model City {
+  id        Int     @id @default(autoincrement())
+  title     String  @db.VarChar(50)
+  countryId Int
+  country   Country @relation(fields: [countryId], references: [id])
+  User      User[]
+
+  @@index([countryId], type: Hash)
+  @@map("cities")
+}

@@ -1,17 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: {enabled: true},
-    modules: ['@nuxtjs/tailwindcss', 'nuxt-icon', "@nuxt/image", 'nuxt-speedkit'],
+    modules: ['nuxt-icon', "@nuxt/image", 'nuxt-speedkit', '@nuxt/ui'],
     css: ['~/assets/css/style.css'],
-    image: {
-
+    image: {},
+    ui: {
+        safelistColors: ['orange', 'yellow', 'brown']
     },
     app: {
-      head: {
-          htmlAttrs: {
-              lang: 'ru'
-          }
-      }
+        head: {
+            htmlAttrs: {
+                lang: 'ru'
+            }
+        }
     },
     speedkit: {
         detection: {
@@ -92,5 +93,9 @@ export default defineNuxtConfig({
             component: '0%',
             asset: '0%'
         }
+    },
+    runtimeConfig: {
+        JWT_SECRET: process.env.JWT_SECRET,
+        APP_URL: process.env.APP_URL
     }
 })
