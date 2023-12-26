@@ -20,7 +20,7 @@ const {img, author, content} = defineProps<{
     <h3 class="gradient font-gilroy-semibold text-2xl md:mt-5">
         {{ author }}
     </h3>
-    <p class="text-brown text-sm mt-1.5 leading-normal flex-1">
+    <p class="text-brown font-gilroy-regular text-sm mt-1.5 leading-normal flex-1">
         {{ content }}
     </p>
 </template>
